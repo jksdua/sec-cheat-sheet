@@ -22,7 +22,7 @@ Make sure you look for the reason to check whether it is SPDY or SSL compression
 
 ### Verifying the finding
 
-The vulnerability can be verified by using the OpenSSL library.
+The vulnerability can be verified by using the OpenSSL library. Make sure you run both tests mentioned below since I've run into situations in the past where OpenSSL comes back with `Compression: NONE` but the server still sends back a compressed payload in test 2.
 
 #### Test 1
 
