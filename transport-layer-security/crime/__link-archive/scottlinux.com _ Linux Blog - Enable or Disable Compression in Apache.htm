@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" class=" js no-touch no-ie8compat" lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width"><title>scottlinux.com | Linux Blog - Enable or Disable Compression in Apache</title>
+<link rel="shortcut icon" href="http://scottlinux.com/wp-content/uploads/2012/04/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/foundation.css" type="text/css">
+<link rel="stylesheet" href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/app.css" type="text/css">
+<link rel="stylesheet" href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/ie.css" type="text/css">
+<link rel="stylesheet" href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/shortcode.css" type="text/css">
+<link rel="stylesheet" href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/elements.css" type="text/css">
+<link rel="stylesheet" href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/style.css" type="text/css">
+<link rel="pingback" href="https://scottlinux.com/xmlrpc.php">
+<link href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/css.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="scottlinux.com | Linux Blog » Feed" href="https://scottlinux.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="scottlinux.com | Linux Blog » Comments Feed" href="https://scottlinux.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="scottlinux.com | Linux Blog » Enable or Disable Compression in Apache Comments Feed" href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/feed/">
+<link rel="stylesheet" id="contact-form-7-css" href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="NextGEN-css" href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/nggallery.css" type="text/css" media="screen">
+<link rel="stylesheet" id="thickbox-css" href="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/thickbox.css" type="text/css" media="all">
+<script async="" src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/cbgapi.loaded_0"></script><script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/ga.js" async="" type="text/javascript"></script><script gapi_processed="true" src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/plusone.js" async="" type="text/javascript"></script><script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/comment-reply.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/jquery_009.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/swfobject.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/jquery_005.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/app.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/jquery_004.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/jquery_007.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/jquery_006.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/modernizr.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/menu.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/mobilemenu.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/external-tracking.js"></script>
+<link rel="prev" title="iostat and vmstat – Awesome System Statistics for Linux" href="https://scottlinux.com/2012/09/12/iostat-and-vmstat-awesome-system-statistics-for-linux/">
+<link rel="next" title="Bluetooth Hacking – ronin" href="https://scottlinux.com/2012/09/13/bluetooth-hacking-ronin/">
+<link rel="canonical" href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/">
+<link rel="shortlink" href="https://scottlinux.com/?p=3628">
+<script>function bb2_addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+bb2_addLoadEvent(function(){for(i=0;i<document.forms.length;i++){if(document.forms[i].method=='post'){var myElement=document.createElement('input');myElement.setAttribute('type','hidden');myElement.name='bb2_screener_';myElement.value='1375943788 115.70.220.178';document.forms[i].appendChild(myElement);}}});</script>
+<meta name="description" content="Enable or Disable Compression in Apache | I’ll show you a quick way to actively check a server for compression as well as how to disable compression in Apache...">
+<script>(function(){var po=document.createElement('script');po.type='text/javascript';po.async=true;po.src='https://apis.google.com/js/plusone.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);})();</script><style>.featured-image{float:left}</style>
+<style>.recentcomments a{display:inline!important;padding:0!important;margin:0!important}</style>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/tw-sack.js"></script>
+<style id="custom-background-css">body.custom-background{background-color:#e3e3e3}</style>
+<script>window.google_analytics_uacct="0745922463";</script>
+<script>var analyticsFileTypes=['mp3','pdf'];var analyticsEventTracking='enabled';</script>
+<script>var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-11009114-3']);_gaq.push(['_addDevId','i9k95']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+<script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script></head>
+<body style="font-family:'Ubuntu', Helvetica, serif" class="single single-post postid-3628 single-format-standard custom-background">
+<div class="wrapper">
+<header>
+<div class="container">
+<div class="row">
+<div class="seven columns">
+<h1 class="posts_title"><a href="https://scottlinux.com/">scottlinux.com | Linux Blog </a></h1>
+</div>
+<div id="register" class="five columns">
+<div id="social">
+<div class="icons">
+<a href="http://im-not-on-facebook.com/" target="_blank" rel="me"><img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/facebook.png" alt="Facebook"></a>
+<a href="http://twitter.com/scottlinux" target="_blank" rel="me"><img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/twitter.png" alt="Twitter"></a>
+<a href="https://scottlinux.com/feed/" target="_blank"><img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/rss_002.png" alt="RSS"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="twelve columns" id="menu">
+<div id="nav" class="twelve columns">
+<ul id="nav_menu">
+<li class="page_item page-item-3089"><a href="http://scottlinux.com/">Home</a></li>
+<li class="page_item page-item-2"><a href="https://scottlinux.com/about/">About</a></li>
+<li class="page_item page-item-8"><a href="https://scottlinux.com/contact/">Contact</a></li>
+<li class="page_item page-item-2494"><a href="http://status.scottlinux.com/" target="_blank">Status</a></li>
+</ul> </div>
+</div>
+</div>
+</div>
+</header>
+<div class="container">
+<div class="row">
+<div class="row">
+<div id="content" class="eight columns">
+<div class="post_container">
+<div class="post-3628 post type-post status-publish format-standard hentry category-linux category-sysadmin tag-apache tag-compression tag-crime-attack tag-deflate tag-gzip tag-https tag-mod_deflate tag-openssl tag-ssl" id="post-3628">
+<div class="postformats">
+<img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/default.png" alt="formats">
+</div>
+<h2 class="posts_title"><a href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/">Enable or Disable Compression in Apache</a></h2>
+<div class="meta">
+Published on <a href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/">September 13, 2012</a>,	by <a href="https://scottlinux.com/author/admin/" title="Posts by Scott Miller" rel="author">Scott Miller</a><a href="https://plus.google.com/114023678276271466001" rel="me" title="Google Plus Profile for +" plugin="Google Plus Authorship">+</a>
+in <a href="https://scottlinux.com/category/linux/" title="View all posts in linux" rel="category tag">linux</a>, <a href="https://scottlinux.com/category/sysadmin/" title="View all posts in sysadmin" rel="category tag">sysadmin</a>.
+</div>
+<div class="entry">
+<p><br>
+</p><div align="center">
+<img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/apache_feather_sml.png">
+</div>
+<p><br><br>
+I’ll show you a quick way to actively check a server for compression as 
+well as how to disable compression in Apache. Note: This has _no_ effect
+ on the CRIME TLS vulnerability.<br>
+<br><br>
+</p><hr><br><p></p>
+<h3>Test for Compression</h3>
+<p><br></p>
+<p>A simple test page to test for HTTP compression is here:<br><br></p>
+<p><a href="http://www.gidnetwork.com/tools/gzip-test.php">http://www.gidnetwork.com/tools/gzip-test.php</a><br><br></p>
+<p>Or alternatively, below is a manual test for compression over HTTPS.<br><br></p>
+<p>Using openssl, make a connection to the server. Putting in a request 
+header of ‘Accept-Encoding: compress, gzip’ will prompt the server to 
+respond with compression. Note that the page that comes back looks like 
+gibberish as it is compressed. There is also a header ‘Content-Encoding:
+ gzip’ that is replied from the server.</p>
+<p><br><br></p>
+<pre>$ openssl s_client -connect www.apache.org:443
+CONNECTED(00000003)
+[skip certificate info]
+GET / HTTP/1.1  [Enter]
+Host: google.com [Enter]
+Accept-Encoding: compress, gzip [Enter, Enter]
+
+HTTP/1.1 200 OK
+Date: Thu, 13 Sep 2012 16:58:57 GMT
+Server: Apache/2.4.1 (Unix) OpenSSL/1.0.0g
+Last-Modified: Thu, 13 Sep 2012 15:09:56 GMT
+ETag: "891a-4c996b33b64aa-gzip"
+Accept-Ranges: bytes
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 9005
+Content-Type: text/html; charset=utf-8
+
+###v#######^ӓ#1%˗#####Y###########yA$$##        # m+O##########NU#I#h'####&amp;3#-^P#
+u#########^
+           ####Sv#######N#########[#####y#e"U##Ng########&gt;######!#####p##D&amp;############D܅?C5N#####JC####^wL#g#y ΦI9###########8W#H##k#޴####'#####H###:vv[##(V###ٛ#####O#####s######'zKw#_#####9n#N##_##,###Nf###!#K#g#C##Orxō#############/####Wy&lt;ޑQR#p######:v######JE<k########fʮgj%s######e2s|#####_e###t######a##|####c~#b##_\##w## ####n¥##############^####="" #j######y###`a.#g##########="" ###="" #####e########6###~"###nxm89##e######|#######z##w"s#g###pٯ'uug*####u#:l#hŉe###z#########2s#x(*#3vq##6-x##########+bw#####="" :##="" ##="" z###*##a#&###)####b########²s##my####$###:2#ò#m##wyq="">#############8###U###############%HNG##+#E#s######]U###D#####Vi䨱##SG#v########Q#8########9'b###sRh#-#n
+</k########fʮgj%s######e2s|#####_e###t######a##|####c~#b##_\##w##></pre>
+<p><br><br></p>
+<hr><br><p></p>
+<p>A server that does not support DEFLATE or compression will ignore the
+ compress header request and simply reply back the page in plain text, 
+uncompressed:<br><br></p>
+<pre>$ openssl s_client -connect www.example.com:443
+CONNECTED(00000003)
+[skip ssl cert info]
+GET / HTTP/1.1
+Host: google.com
+Accept-Encoding: compress, gzip
+
+HTTP/1.1 200 OK    
+Date: Thu, 13 Sep 2012 17:02:49 GMT
+Connection: Keep-Alive
+Server: Apache
+X-UA-Compatible: IE=edge
+Last-Modified: Wed, 12 Sep 2012 07:08:22 GMT
+Accept-Ranges: bytes
+Vary: *
+Content-Length: 26717
+Content-Type: text/html; charset=utf-8
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en" class="no-js"&gt;
+&lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+</pre>
+<p><br><br></p>
+<hr><br><p></p>
+<h3>Disable Compression</h3>
+<p>To disable compression in Apache, typically you just need to disable 
+the module mod_deflate. After making the below adjustments, test again 
+with the above manual test to confirm compression is disabled.<br>
+<br><br></p>
+<p><b>Debian/Ubuntu:</b><br><br></p>
+<div class="ezAdsense adsense adsense-midtext" style="text-align:center;margin:12px;"><script>google_ad_client="ca-pub-6929180124552801";google_ad_slot="6466040830";google_ad_width=468;google_ad_height=60;</script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/show_ads.js"></script></div>
+<pre>$ sudo a2dismod deflate
+ 
+Module deflate disabled.
+Run '/etc/init.d/apache2 restart' to activate new configuration!
+</pre>
+<p><br></p>
+<pre>$ sudo /etc/init.d/apache2 restart
+</pre>
+<p><br><br></p>
+<hr><br><br>
+<b>Red Hat or CentOS:</b><br><br><p></p>
+<pre>$ sudo nano /etc/httpd/conf/httpd.conf
+</pre>
+<p><br><br><br>
+Comment out this line:<br><br></p>
+<pre>LoadModule deflate_module modules/mod_deflate.so
+</pre>
+<p><br><br>
+It should now look like this:<br><br></p>
+<pre>#LoadModule deflate_module modules/mod_deflate.so
+</pre>
+<p><br><br></p>
+<p>Close and save the file then restart httpd:<br><br></p>
+<pre>$ sudo /etc/init.d/httpd restart
+</pre>
+<p><br><br>
+</p><hr><br><p></p>
+<h3>What about CRIME?</h3>
+<p>Note that currently at the time of this post there is a current 
+enhancement bug concerning disabling ssl compression in mod_ssl. This is
+ the only way known currently to mitigate against CRIME. This is only 
+available in Apache 2.4.3 but could be backported to Apache 2.2. The bug
+ is:<br><br></p>
+<p><a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=53219">https://issues.apache.org/bugzilla/show_bug.cgi?id=53219</a><br><br></p>
+<p><br><br><br><br></p>
+<a class="wpptopdf" target="_blank" rel="noindex,nofollow" href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/?format=pdf" title="Download PDF"><img alt="Download PDF" src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/pdf.png"><b>PDF Download!</b><br></a>	</div>
+<div class="tags">
+Tags: <a href="https://scottlinux.com/tag/apache/" rel="tag">apache</a>, <a href="https://scottlinux.com/tag/compression/" rel="tag">compression</a>, <a href="https://scottlinux.com/tag/crime-attack/" rel="tag">CRIME attack</a>, <a href="https://scottlinux.com/tag/deflate/" rel="tag">deflate</a>, <a href="https://scottlinux.com/tag/gzip/" rel="tag">gzip</a>, <a href="https://scottlinux.com/tag/https/" rel="tag">https</a>, <a href="https://scottlinux.com/tag/mod_deflate/" rel="tag">mod_deflate</a>, <a href="https://scottlinux.com/tag/openssl/" rel="tag">openssl</a>, <a href="https://scottlinux.com/tag/ssl/" rel="tag">SSL</a><br>
+</div>
+<div id="comments">
+<a href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/#comments" title="Comment on Enable or Disable Compression in Apache">1 Comment</a>.	</div>
+</div>
+</div>
+<div id="post_pagination"><div class="pagination_text">
+« <a href="https://scottlinux.com/2012/09/12/iostat-and-vmstat-awesome-system-statistics-for-linux/" rel="prev">iostat and vmstat – Awes...</a><span style="float: right"><a href="https://scottlinux.com/2012/09/13/bluetooth-hacking-ronin/" rel="next">Bluetooth Hacking – ronin</a> »</span>
+</div></div>
+<div class="comments_container">
+<h2 class="commentsh2">One Response</h2>
+<div class="navigation">
+<div class="next-posts"></div>
+<div class="prev-posts"></div>
+</div>
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="li-comment-910">
+<div id="comment-910">
+<div class="comment-author vcard">
+<img alt="" src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/c36632809a670c33b185cdd3418bc960.png" class="avatar avatar-48 photo" height="48" width="48">
+<cite class="fn">David Ramirez</cite> <span class="says"></span> </div>
+<div class="comment-meta commentmetadata"><a href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/#comment-910">January 9, 2013 at 12:46</a></div>
+<p>At least related to Apache 2.2.x on CentOS, the bugzilla entry:<br>
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=857051#c5" rel="nofollow">https://bugzilla.redhat.com/show_bug.cgi?id=857051#c5</a><br>
+seems to fix the issue.</p>
+<p>I just added the suggested line:<br>
+export OPENSSL_NO_DEFAULT_ZLIB=1</p>
+<p>to /etc/sysconfig/httpd<br>
+and after restarting the httpd service, it passed the vulnerability scan against CRIME.<br>
+The patch to openssl mentioned in the bug looks to be in place. Nothing else was needed.<br>
+Launching also:<br>
+<code><br>
+openssl s_client -connect my.server.com:443<br>
+</code><br>
+reports</p>
+<p>Compression: NONE<br>
+Expansion: NONE</p>
+<p>which satisfies the need and seems to solve the problem.<br>
+N.B.<br>
+Alas, the security scan after this hinted at the (related) BEAST vulnerability being still alive.</p>
+<div class="reply">
+<a class="comment-reply-link" href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/?replytocom=910#respond" onclick='return addComment.moveForm("comment-910", "910", "respond", "3628")'>Reply</a> </div>
+</div>
+</li>
+</ol>
+<div class="navigation">
+<div class="next-posts"></div>
+<div class="prev-posts"></div>
+</div>
+</div>
+<div class="comments_container">
+<div id="respond">
+<div class="cancel-comment-reply">
+<a rel="nofollow" id="cancel-comment-reply-link" href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/#respond" style="display:none;">Click here to cancel reply.</a>	</div>
+<div id="respond">
+<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://scottlinux.com/2012/09/13/enable-or-disable-compression-in-apache/#respond" style="display:none;">Cancel reply</a></small></h3>
+<form action="https://scottlinux.com/wp-comments-post.php" method="post" id="commentform">
+<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>	<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" size="30"></p>
+<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>	<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: <code>&lt;a
+ href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; 
+&lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del 
+datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; 
+&lt;strong&gt; </code></p>	<p class="form-submit">
+<input name="submit" id="submit" value="Post Comment" type="submit">
+<input name="comment_post_ID" value="3628" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p>
+<p><input style="width:30px" name="subscribe-reloaded" id="subscribe-reloaded" value="yes" type="checkbox"> Notify me of followup comments via e-mail. You can also <a href="https://scottlinux.com/manage-subscriptions?srp=3628&amp;sra=s">subscribe</a> without commenting.</p><input id="captchafree" name="captchafree" value="" type="hidden">
+<script>//<![CDATA[
+function gethash(){document.getElementById('captchafree').form.onsubmit=null;if(document.getElementById('submit'))document.getElementById('submit').value='Please wait...';var mysack=new sack("https://scottlinux.com/wp-content/plugins/wp-captcha-free/captcha-free.php");mysack.execute=1;mysack.method='POST';mysack.onError=function(){alert('Unable to get Captcha-Free Hash!')};mysack.setVar('post_id',3628);mysack.runAJAX();return false;}
+function gothash(myhash){document.getElementById('captchafree').value=myhash;document.getElementById('submit').click();}
+document.getElementById('captchafree').form.onsubmit=gethash;
+//]]></script>
+<noscript><p><strong>Please note:</strong> JavaScript is required to post comments.</p></noscript>
+<input value="1375943788 115.70.220.178" name="bb2_screener_" type="hidden"></form>
+</div>
+
+</div>
+</div>
+</div>
+<div id="sidebar" class="four columns">
+<div id="search-3" class="widget-container">
+<form class="searchform" action="https://scottlinux.com/">
+<div id="magnify"><img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/magnify.png" alt="magnify"></div>
+<div><input name="s" class="s" value="Search" id="searchsubmit" onfocus="if (this.value == 'Search') this.value = '';"></div>
+<div><input class="searchsubmit" value="" type="submit"></div>
+</form></div><div id="ezadswidget-5" class="widget-container">
+<div class="ezAdsense adsense adsense-widget"><div style="text-align:center;margin:12px;"><script>google_ad_client="ca-pub-6929180124552801";google_ad_slot="0745922463";google_ad_width=200;google_ad_height=200;</script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/show_ads.js"></script></div></div>
+</div><div id="wp_ara_widget_random_posts-2" class="widget-container"><h2 class="widget-title">Random Posts</h2><ul>
+<li><a href="https://scottlinux.com/2011/01/24/generate-strong-passwords/">Generate Strong Passwords</a></li>
+<li><a href="https://scottlinux.com/2010/07/29/inode-what-is-it/">inode - What is it?</a></li>
+<li><a href="https://scottlinux.com/2013/01/14/apache-wordpress-drupal-website-permissions/">Apache Wordpress Drupal Website Permissions</a></li>
+<li><a href="https://scottlinux.com/2012/06/07/how-to-grab-disable-bind-version-banner/">How to Grab | Disable BIND Version Banner</a></li>
+<li><a href="https://scottlinux.com/2013/02/25/browsercheck-com-check-your-browser-security/">Browsercheck.com - check your browser security</a></li>
+<li><a href="https://scottlinux.com/2012/09/25/install-bind-in-red-hat-6-or-centos-6/">Install BIND in Red Hat 6 or CentOS 6</a></li>
+<li><a href="https://scottlinux.com/2011/04/24/batch-rename-files-with-rename/">Batch Rename Files with rename</a></li>
+</ul>
+</div><div id="recent-comments-4" class="widget-container"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments">Len on <a href="https://scottlinux.com/2013/05/16/install-libreoffice-4-with-debian-wheezy-backports/#comment-1092">Install LibreOffice 4 with Debian Wheezy Backports</a></li><li class="recentcomments">Paqueuc on <a href="https://scottlinux.com/2013/06/07/how-to-install-the-latest-wireshark-from-source-on-debian-or-ubuntu-linux/#comment-1091">How to Install the Latest Wireshark from Source on Debian or Ubuntu Linux</a></li><li class="recentcomments">Scott Miller on <a href="https://scottlinux.com/2013/06/07/how-to-install-the-latest-wireshark-from-source-on-debian-or-ubuntu-linux/#comment-1089">How to Install the Latest Wireshark from Source on Debian or Ubuntu Linux</a></li><li class="recentcomments">Scott Miller on <a href="https://scottlinux.com/2013/06/02/use-google-authenticator-for-two-factor-ssh-authentication-in-linux/#comment-1088">Use Google Authenticator For Two-Factor SSH Authentication in Linux</a></li><li class="recentcomments">Blaasvaak on <a href="https://scottlinux.com/2013/06/02/use-google-authenticator-for-two-factor-ssh-authentication-in-linux/#comment-1087">Use Google Authenticator For Two-Factor SSH Authentication in Linux</a></li></ul></div><div id="ezadslu-3" class="widget-container"><div class="ezAdsense adsense adsense-lu"><div style=";margin:12px;">
+<div align="center">
+<script>google_ad_client="ca-pub-6929180124552801";google_ad_slot="1727637707";google_ad_width=200;google_ad_height=200;</script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/show_ads.js"></script></div>
+</div></div></div><div id="text-16" class="widget-container">	<div class="textwidget"><div align="center"><a href="https://scottlinux.com/feed/"><img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/rss.png"></a></div></div>
+</div><div id="ipv6detector" class="widget-container"><h2 class="widget-title">IPv6 detector</h2>Looks like you are still using IPv4.<a href="http://log.patux.cl/whois.php?obj=115.70.220.178"> 115.70.220.178 </a><ul></ul></div>	</div>
+</div>
+</div>
+<div class="row"><div id="crumbs" class="twelve columns"><div class="crumbs_text"><a href="https://scottlinux.com/">Home</a> <img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/breadcrumb-arrow.png"> <a href="https://scottlinux.com/category/linux/" title="View all posts in linux">linux</a> <img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/breadcrumb-arrow.png"> <span class="current">Enable or Disable Compression in Apache</span></div></div></div>
+</div>
+<div class="push"></div>
+</div>
+
+<div class="footer">
+<div id="footer" class="container">
+<div class="row" id="footer_container">
+<div id="footer_wrap">
+<div class="three columns footer-widgets">	<div class="textwidget"></div>
+</div><div class="clear"></div>
+</div>
+</div>
+</div>
+<div id="afterfooter" class="container">
+<div class="row" id="afterfooterwrap">
+<div id="afterfootercopyright" class="six columns">
+</div>
+<br>
+<div id="credit" class="six columns">© <a href="http://en.wikipedia.org/wiki/Copyleft">Copyleft</a> scottlinux.com <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a><br> Powered by <a href="http://www.linode.com/?r=a655776a052a5ff0d09d9193a3e392656d601386">Linode</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> Linux!<br><a href="http://ipv6-test.com/validate.php?url=scottlinux.com" target="_blank"><img src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/button-ipv6-80x15.png" alt="ipv6 ready" title="ipv6 ready" border="0"></a><hr>Support scottlinux.com | <a href="http://www.linode.com/?r=a655776a052a5ff0d09d9193a3e392656d601386" target="_blank">linode</a> | <a href="https://hover.com/5fdbrwXy" target="_blank">hover</a> | <a href="https://www.digitalocean.com/?refcode=f2d8d56aafbb" target="_blank">digitalocean</a><br><br></div>
+</div>
+</div>
+<script>tb_pathToImage="https://scottlinux.com/wp-includes/js/thickbox/loadingAnimation.gif";tb_closeImage="https://scottlinux.com/wp-includes/js/thickbox/tb-close.png";</script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/jquery_002.js"></script>
+<script>//<![CDATA[
+var _wpcf7={"loaderUrl":"https:\/\/scottlinux.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+//]]></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/scripts.js"></script>
+<script>//<![CDATA[
+var thickboxL10n={"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"https:\/\/scottlinux.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif","closeImage":"https:\/\/scottlinux.com\/wp-includes\/js\/thickbox\/tb-close.png"};
+//]]></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/thickbox.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/jquery.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/jquery_008.js"></script>
+<script src="scottlinux.com%20_%20Linux%20Blog%20-%20Enable%20or%20Disable%20Compression%20in%20Apache_files/jquery_003.js"></script>
+<script>var pltNewTabURLs=["http:\/\/status.scottlinux.com"];(function(){jQuery(function(e){return e("body").on("click","a",function(t){var n;n=e(this);if(e.inArray(n.attr("href"),pltNewTabURLs)>-1)return n.attr("target","_blank")})})}).call(this);</script>
+</div>
+
+
+</body></html>
