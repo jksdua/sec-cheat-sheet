@@ -25,6 +25,8 @@ I actually didn't know about this vulnerability until Nikto picked it up on one 
 
 ### Exploitation
 
+__Update:__ Turns out Nessus does a pretty good job at parsing this file and returning all its entries. So, if you have already run Nessus, you don't need to go through the following steps manually. 
+
 Unfortunately, there is not much information on how to use this vulnerability to exploit a remote system. Opening the file in a basic text editor might look like below.
 
 ![Basic Text Editor](./basic-text-editor.PNG)
