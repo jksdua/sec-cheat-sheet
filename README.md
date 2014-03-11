@@ -1,7 +1,7 @@
 Pentesting Cheat Sheet
 ======================
 
-A collection of cheat sheets for pentesting and security related things
+This security cheat sheet is a collection of tips and tricks to assist pentesters in testing applications and networks.
 
 ### Usage
 
